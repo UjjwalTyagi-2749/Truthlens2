@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#080c0c" />
+<meta name="description" content="TruthLens — an AI-powered media authenticity assessment showcase." />
+<title>TruthLens — See beyond the pixels.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div><div class="glow glow-one"></div><div class="glow glow-two"></div>
+<header class="site-header shell">
+  <a href="/" class="brand" aria-label="TruthLens home"><span class="brand-icon"><span></span></span><span>truth<span class="brand-accent">lens</span><small>AI MEDIA INTELLIGENCE</small></span></a>
+  <div class="header-right"><span class="live-dot"></span><span class="status-text">SYSTEM ONLINE</span><span class="version">BETA / V1.0</span></div>
+</header>
+<main>
+  <section class="hero shell"><div class="eyebrow"><span class="mini-line"></span> THE AUTHENTICITY LAB <span class="eyebrow-id">/ 001</span></div>
+    <h1>The internet is<br/><em>not what it <span>seems.</span></em></h1>
+    <p>Images lie. Videos deceive. Get an AI-powered visual assessment of your media in seconds — with the evidence behind the verdict.</p>
+    <div class="hero-badges"><span><i class="tiny-square"></i> IMAGE ANALYSIS</span><span><i class="tiny-square"></i> VIDEO FRAME ANALYSIS</span><span><i class="tiny-square"></i> POWERED BY GEMINI</span></div>
+    <div class="hero-mark" aria-hidden="true"><span class="orb-ring outer"></span><span class="orb-ring inner"></span><span class="orb-eye"></span><span class="cross c1">+</span><span class="cross c2">+</span><span class="cross c3">+</span></div>
+  </section>
+  <section class="workspace shell" id="lab"><div class="section-head"><div><span class="micro">01 / DETECTION STUDIO</span><h2>Let's inspect the truth.</h2></div><div class="signal"><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-bar"></span><span class="signal-label">VISUAL ANALYSIS ENGINE</span></div></div>
+    <div class="app-grid"><div class="app-panel upload-panel">
+      <div class="panel-title"><span class="number">01</span><span>SELECT MEDIA</span><span class="panel-corner">INPUT</span></div>
+      <div class="tabs" role="tablist" aria-label="Media type"><button class="tab active" id="imageTab" role="tab" aria-selected="true" type="button"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>IMAGE</button><button class="tab" id="videoTab" role="tab" aria-selected="false" type="button"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="14" height="14" rx="2"/><path d="m17 10 4-3v10l-4-3"/></svg>VIDEO</button></div>
+      <div class="dropzone" id="dropzone" role="button" tabindex="0" aria-label="Choose file or drop it here"><input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp" hidden/><div id="emptyState" class="empty-state"><div class="upload-symbol"><svg viewBox="0 0 60 60" fill="none"><rect x="5" y="5" width="50" height="50" rx="10" stroke="currentColor" stroke-opacity=".3" stroke-dasharray="3 4"/><path d="M30 40V20m0 0-8 8m8-8 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div><strong>Drop your media here</strong><span>or <u>browse files</u> from your device</span><small id="dropHint">PNG, JPG, WEBP • Max 15 MB</small></div><div id="previewState" class="preview-state hidden"><img id="imagePreview" alt="Uploaded media preview"/><video id="videoPreview" muted playsinline controls></video><div class="preview-meta"><span id="fileName"></span><span id="fileSize"></span></div></div></div>
+      <button id="analyzeBtn" class="analyze-button" disabled type="button"><span id="btnText">SELECT A FILE TO START</span><svg viewBox="0 0 24 24"><path d="M4 12h16m-7-7 7 7-7 7"/></svg></button><p class="fine-print">Your file is processed in your browser; reduced image or video frames are sent to Gemini for visual assessment. No file storage is implemented in this demo.</p>
+    </div>
+    <div class="app-panel result-panel"><div class="panel-title"><span class="number">02</span><span>ANALYSIS REPORT</span><span class="panel-corner">OUTPUT</span></div>
+      <div class="result-idle" id="resultIdle"><div class="radar"><span class="radar-circle rc1"></span><span class="radar-circle rc2"></span><span class="radar-circle rc3"></span><span class="radar-center"></span><span class="radar-line"></span></div><div class="idle-meta"><span class="idle-kicker">AWAITING SIGNAL</span><h3>Your verdict<br/>starts here.</h3><p>Upload an image or video and our analysis engine will inspect the visual evidence.</p></div><div class="idle-bottom"><span>[ 00 : 00 ]</span><span>READY FOR INPUT</span></div></div>
+      <div class="result-loading hidden" id="resultLoading"><span class="loader-tag">ANALYSIS IN PROGRESS</span><div class="loading-icon"><span></span><span></span><span></span></div><h3>Looking beyond<br/>the pixels...</h3><p id="loadingStatus">Extracting visual signals</p><div class="loader-track"><div></div></div></div>
+      <div class="result-ready hidden" id="resultReady"><div class="result-overline"><span>SCAN COMPLETED</span><span id="resultMode">IMAGE / FRAME</span></div><div class="verdict-identity"><span class="verdict-dot"></span><div><small>VISUAL ASSESSMENT</small><h3 id="verdictHeading">UNCERTAIN</h3></div></div><div class="score-row"><div><div class="score-number"><span id="scoreValue">0</span><span class="percentage">/100</span></div><span class="score-caption">HEURISTIC ASSESSMENT STRENGTH*</span></div><div class="score-ring" id="scoreRing"><div><span id="scoreInRing">0</span><small>INDEX</small></div></div></div><div class="result-summary" id="resultSummary"></div><div class="signals-header">OBSERVED SIGNALS</div><ul id="signalsList" class="signals-list"></ul><div class="limitation" id="limitations"></div><button class="reset-link" id="resetBtn" type="button">↗ ANALYZE ANOTHER FILE</button></div>
+      <div class="result-error hidden" id="resultError"><div class="error-mark">!</div><h3>Analysis interrupted.</h3><p id="errorMessage"></p><button class="reset-link" id="retryBtn" type="button">↗ TRY AGAIN</button></div>
+    </div></div>
+  </section>
+  <section class="how shell"><div class="section-head"><div><span class="micro">02 / THE PROCESS</span><h2>Simple process.<br/><span>Closer inspection.</span></h2></div></div><div class="steps"><article><span>01 /</span><h3>UPLOAD</h3><p>Choose an image or video you want to inspect. We prepare reduced visual data for analysis.</p></article><article><span>02 /</span><h3>EXAMINE</h3><p>Gemini reviews visible cues including inconsistencies, texture artifacts and visual context.</p></article><article><span>03 /</span><h3>UNDERSTAND</h3><p>Receive a qualified assessment, observations and limitations — not a claim of certainty.</p></article></div></section>
+  <section class="disclaimer shell"><div class="disclaimer-head"><span>✳</span><span>IMPORTANT NOTE</span></div><p>TruthLens is an experimental AI-assisted media assessment tool. A language model's visual judgment <strong>is not a verified deepfake detector</strong>. It can be wrong on genuine or synthetic media. Do not use its output as proof or for consequential decisions.</p></section>
+</main>
+<footer class="shell"><div class="footer-brand">truth<span>lens</span><small> / SEE BEYOND THE PIXELS.</small></div><div>BUILT FOR CURIOSITY. POWERED BY GEMINI.</div><div>© 2026 TRUTHLENS</div></footer>
+<script type="module" src="/app.js"></script>
+</body></html>
